@@ -1,0 +1,38 @@
+<div class="layout-container">
+  <div class="reservation-task-card">
+    <h2 class="card-title">Atualizar Reserva</h2>
+
+    <form class="task-form">
+      <mat-form-field appearance="outline" class="custom-select-field">
+        <mat-select placeholder="Status" (selectionChange)="onStatusChange($event.value)" [(ngModel)]="status" name="status">
+          <mat-option value="aberta">Aberta</mat-option>
+          <mat-option value="nao-confirmada">Não Confirmada</mat-option>
+          <mat-option value="duplicada">Duplicada</mat-option>
+          <mat-option value="nova-reserva">Nova Reserva Criada</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="fields-group">
+
+        <!-- NOVO INPUT (condicional -> nova reserva) -->
+        <div class="input-wrapper" [hidden]="!mostrarLocalizador">
+          <input type="text" name="localizadorNovo" placeholder="Novo Localizador" class="custom-input" [(ngModel)]="numeroNovaReserva">
+        </div>
+
+        <div class="input-wrapper">
+          <input type="text" name="responsavel" placeholder="Responsável" class="custom-input" [(ngModel)]="responsavel">
+        </div>
+
+        <div class="input-wrapper">
+          <input type="text" name="confirmadaPor" placeholder="Confirmada por" class="custom-input" [(ngModel)]="confirmadaPor">
+        </div>
+
+        <div class="input-wrapper">
+          <textarea name="observacoes" placeholder="Observações" rows="4" class="custom-textarea" [(ngModel)]="observacoes"></textarea>
+        </div>
+
+        <button type="button" class="btn-save" (click)="salvarReserva()">Salvar Reserva</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-input (reservaEncontrada)="onReservaRecebida($event)" (limparDados)="resetarTela()"></app-input>
+
+<div class="main-content">
+  <app-reservation-details-card [reserva]="reserva"></app-reservation-details-card>
+  <app-reservation-task-card [reserva]="reserva" [tratativa]="tratativa" ></app-reservation-task-card>
+</div>

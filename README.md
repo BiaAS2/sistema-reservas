@@ -1,27 +1,103 @@
-# MeuProjeto
+<h1 align="center">Sistema de Tratativa de Reservas Não Confirmadas</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+<p align="center">
+  <a href="#sobre-o-projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#tecnologias-utilizadas">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#como-executar">Execução</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#material">Documentação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#layout">Layout</a>
+</p>
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<br>
 
-## Code scaffolding
+<p align="center">
+  <img alt="imagem Projeto" src="./frontend/public/img/tela_inicial.png" width="100%">
+</p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Sobre o projeto
 
-## Build
+Aplicação Full Stack desenvolvida para consulta e tratamento operacional de reservas não confirmadas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O sistema permite pesquisar reservas, visualizar seus detalhes e registrar ou atualizar as tratativas realizadas pela equipe responsável.
 
-## Running unit tests
+## Tecnologias utilizadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Frontend
+- Angular 18
+- TypeScript
+- SCSS
+- Angular Material
+- SweetAlert2
+- Bootstrap Icons
 
-## Running end-to-end tests
+### Backend
+- Python
+- FastAPI
+- Uvicorn
+- Psycopg2
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Banco de dados
+- PostgreSQL
 
-## Further help
+## Estrutura do projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```text
+MEU-PROJETO/
+├── backend/
+├── frontend/
+├── database/
+│   └── schema.sql
+├── docs/
+├── .gitignore
+└── README.md
+```
+
+## Como executar
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+ng serve
+```
+
+### Backend
+
+```bash
+cd backend
+pip install fastapi uvicorn psycopg2 pydantic
+uvicorn main:app --reload
+```
+
+### Banco de dados
+
+Execute o arquivo:
+
+```text
+database/schema.sql
+```
+
+em uma instância PostgreSQL para criar as tabelas necessárias para a aplicação.
+
+## Funcionalidades
+
+- Consulta de reservas;
+- Visualização dos detalhes da reserva;
+- Cadastro e atualização de tratativas;
+- Registro de observações operacionais;
+- Registro de novo localizador;
+- Limpeza manual para nova consulta.
+
+## Material
+
+Para acessar o material do nosso Mini curso acesse o link: [MATERIAL](./docs/Documentação%20Técnica%20—%20Sistema%20de%20Tratativa%20de%20Reservas%20Não%20Confirmadas.pdf)
+
+## Layout
+
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/design/Gxmx1H5sxs0puKWE1Y6zkR/Software-design?node-id=2001-2&p=f&t=h0sw2VuDRFIP5Dsp-0). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
+
+## Autor
+
+Desenvolvido por **Beatriz Alves** como projeto de aprendizado e portfólio em desenvolvimento Full Stack.

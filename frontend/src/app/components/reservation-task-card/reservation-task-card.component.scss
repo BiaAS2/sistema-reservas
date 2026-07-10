@@ -1,0 +1,159 @@
+// Variáveis mantidas
+$bg-card: rgba(132, 179, 140, 0.67);
+$primary-green: #2e5d32;
+$white: #ffffff;
+$border-color: #dee2e6;
+
+.reservation-task-card {
+  background-color: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 40px;
+  padding: 40px;
+  width: 600px; // Removi o width: 100% duplicado
+  min-height: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition:
+    width 0.4s ease-in-out,
+    padding 0.4s ease-in-out;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1440px) {
+    width: 450px; // Ajustado para não apertar tanto o Material
+    padding: 30px;
+
+    .card-title {
+      align-self: center;
+      font-size: 1.5rem;
+    }
+  }
+
+  .card-title {
+    font-family: sans-serif;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+  }
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; // Espaçamento geral entre os elementos
+
+  // --- ESTILIZAÇÃO DO ANGULAR MATERIAL ---
+  // Use ::ng-deep para garantir que o estilo chegue nos elementos internos
+  ::ng-deep .custom-select-field {
+    width: 100%;
+
+    // 1. Onde aplicamos o fundo branco e a nossa borda arredondada real
+    .mat-mdc-text-field-wrapper {
+      background-color: #ffffff !important;
+      border-radius: 15px !important;
+      border: 1px solid #ccc !important; // Borda padrão cinza
+      padding: 0 12px !important;
+      transition: border-color 0.3s ease;
+
+      // Remove a cor de fundo padrão do Material que causa manchas
+      background: white !important;
+    }
+
+    // 2. MÁGICA: Esconde completamente o sistema de bordas triplas do Material
+    // Isso remove aquela linha vertical vermelha que você marcou no print
+    .mdc-notched-outline {
+      display: none !important;
+    }
+
+    // 3. Centraliza o texto do select verticalmente
+    .mat-mdc-form-field-infix {
+      padding: 12px 0 !important;
+      min-height: auto !important;
+    }
+
+    // 4. Remove o espaçamento extra embaixo que o Material reserva para erros
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none !important;
+    }
+
+    // 5. Quando o campo estiver focado (Verde)
+    &.mat-focused {
+      .mat-mdc-text-field-wrapper {
+        border: 2px solid #2e5d32 !important; // Seu verde
+      }
+    }
+
+    // 1. Localiza a seta e prepara a transição
+    .mat-mdc-select-arrow {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      display: inline-block !important; // Garante que o elemento aceite rotação
+    }
+
+    // 2. Se a classe de aberto estiver no form-field (Pai)
+    &.mat-form-field-opened .mat-mdc-select-arrow,
+    // 3. Se a classe estiver no próprio select (Filho)
+    .mat-mdc-select[aria-expanded="true"] .mat-mdc-select-arrow {
+      transform: rotate(180deg) !important;
+    }
+
+    // A cor da seta propriamente dita
+    .mat-mdc-select-arrow svg {
+      fill: #2e5d32 !important; // Cor verde na seta
+      opacity: 1 !important; // Garante que não fique desbotada
+    }
+
+    // Cor do label (Status) quando o campo está focado
+    &.mat-focused .mat-mdc-floating-label {
+      color: #2e5d32 !important;
+    }
+  }
+
+  .fields-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .custom-input,
+    .custom-textarea {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 15px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      outline: none;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: $primary-green;
+        box-shadow: 0 0 5px rgba(46, 93, 50, 0.2);
+      }
+    }
+
+    .custom-textarea {
+      resize: none;
+    }
+  }
+
+  .btn-save {
+    background-color: $primary-green;
+    color: $white;
+    padding: 16px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      filter: brightness(1.2);
+      box-shadow: 0 4px 12px rgba(46, 93, 50, 0.3);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}

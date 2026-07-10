@@ -1,0 +1,50 @@
+<div class="reservation-details-card">
+  <h2>{{reserva?.numero_reserva || 'Número da Reserva'}}</h2>
+
+  <dl class="details-list">
+    <div class="detail-group">
+      <dt>Nome da Empresa</dt>
+      <dd>{{reserva?.nome_empresa}}</dd>
+    </div>
+
+    <div class="detail-group">
+      <dt>Nome do Requisitante</dt>
+      <dd>{{reserva?.nome_requisitante}}</dd>
+    </div>
+
+    <div class="detail-group">
+      <dt>Agência</dt>
+      <dd>{{reserva?.agencia}}</dd>
+    </div>
+
+    <div class="detail-group">
+      <dt>Nome do Condutor</dt>
+      <dd>{{reserva?.nome_condutor}}</dd>
+    </div>
+
+    <div class="detail-group inline">
+      <dt>Grupo</dt>
+      <dd>{{reserva?.grupo}}</dd>
+    </div>
+
+    <div class="detail-group inline">
+      <dt>E-mail</dt>
+      <dd>{{reserva?.email}}</dd>
+    </div>
+
+    <div class="detail-group inline">
+      <dt>Telefone</dt>
+      <dd>{{formatarTelefone(reserva?.telefone)}}</dd>
+    </div>
+
+    <div class="detail-group inline">
+      <dt>Data de Retirada</dt>
+      <dd>{{reserva?.data_retirada | date:'dd/MM/yyyy'}}</dd>
+    </div>
+
+    <div class="detail-group inline">
+      <dt>Data de Devolução</dt>
+      <dd>{{reserva?.data_devolucao | date:'dd/MM/yyyy'}}</dd>
+    </div>
+    </dl>
+</div>

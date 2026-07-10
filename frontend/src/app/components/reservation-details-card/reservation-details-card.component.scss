@@ -1,0 +1,47 @@
+.reservation-details-card {
+  max-width: 600px;
+  font-family: sans-serif;
+  margin: 30px 48px 10px;
+  font-size: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  dt {
+    font-weight: 500;
+    color: #333;
+    min-width: fit-content;
+    font-weight: bolder;
+  }
+
+  dd {
+    margin-top: 10px;
+    flex-grow: 1; /* Faz o campo ocupar todo o espaço restante */
+    border-bottom: 2px solid #989696; /* Cria a linha cinza da imagem */
+    min-height: 1.2em; /* Garante que a linha apareça mesmo se o dado estiver vazio */
+  }
+}
+
+.detail-group {
+  display: flex;
+  flex-direction: column; /* Rótulo em cima do dado para os primeiros itens */
+  margin-bottom: 15px;
+}
+
+// Ajuste para Notebooks (telas de 13" a 15")
+@media (max-width: 1440px) {
+  .detail-group {
+    dt,
+    dd {
+      font-size: 15px;
+    }
+  }
+}
+
+/* Para os itens que têm o rótulo ao lado da linha (como Grupo e E-mail na sua imagem) */
+.detail-group.inline {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+}

@@ -1,0 +1,26 @@
+#cabecalho {
+  display: flex;
+  background-color: #03602b;
+  align-items: center;
+  justify-content: space-between; // Joga o título para esquerda e a logo para direita
+  padding: 10px 48px; // Alinhado com o padding da sua pesquisa
+  color: white;
+  height: 80px;
+  box-sizing: border-box;
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+
+    @media (max-width: 1440px) {
+      font-size: 20px; // Diminui o texto em notebooks
+    }
+  }
+
+  img {
+    height: 45px;
+    width: auto;
+    // Removi o position: absolute para não quebrar o layout
+  }
+}

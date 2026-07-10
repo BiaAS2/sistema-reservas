@@ -1,0 +1,12 @@
+.main-content {
+  display: flex; /* Coloca os filhos em linha (lado a lado) */
+  align-items: flex-start; /* Garante que os dois comecem no topo */
+  justify-content: space-around; /* Centraliza o conjunto na tela */
+  margin-top: 20px;
+}
+
+/* Opcional: Garante que os componentes tenham um tamanho bom */
+app-reservation-details-card {
+  flex: 2; /* Ocupa mais espaço */
+  max-width: 600px;
+}

@@ -1,0 +1,82 @@
+#pesquisa-container {
+  display: flex;
+  align-items: center;
+  padding: 30px 48px 10px;
+  gap: 10px;
+
+  @media (max-width: 1440px) {
+    padding: 20px 48px 5px; // Reduz o respiro superior em notebooks
+  }
+}
+
+#pesquisa {
+  padding: 10px 15px;
+  width: 250px; // Largura um pouco maior para Desktop
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  border: 1px solid transparent;
+  font-size: 15px;
+  height: 45px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  transition: all 0.3s ease; // Animação suave no foco
+
+  &:focus {
+    outline: none;
+    border-color: #03602b; // Dá um feedback visual ao clicar
+    background-color: #e2e2e2;
+  }
+
+  @media (max-width: 1440px) {
+    width: 200px; // Diminui o campo em notebooks para sobrar espaço
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+#btn-pesquisar {
+  background-color: #03602b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 45px;
+  width: 50px; // Deixa o botão mais quadrado, como no design original
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: #024a21; // Feedback de hover
+  }
+
+  @media (max-width: 1440px) {
+    height: 40px;
+    width: 45px;
+  }
+}
+
+#btn-limpar {
+  background-color: #ff4d4d; // Vermelho para indicar ação de limpar
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 45px;
+  width: 120px; // Mantém o mesmo tamanho do botão de pesquisa
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  font-size: 17px;
+
+  &:hover {
+    background-color: #cc0000; // Feedback de hover
+  }
+
+  @media (max-width: 1440px) {
+    height: 40px;
+    width: 100px;
+  }
+}
