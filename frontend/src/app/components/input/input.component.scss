@@ -7,6 +7,46 @@
   @media (max-width: 1440px) {
     padding: 20px 48px 5px; // Reduz o respiro superior em notebooks
   }
+
+  .custom-select-segmento {
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #2e5d32;
+    }
+  }
+}
+
+/* Badge indicativa de PF ou PJ ao lado do número da reserva */
+.badge-segmento {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-weight: bold;
+
+  &.pf {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+  }
+
+  &.pj {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+  }
+}
+
+.valor-destaque {
+  font-weight: bold;
+  color: #2e5d32;
 }
 
 #pesquisa {
