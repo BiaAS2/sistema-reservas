@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class InputComponent {
   numeroReserva: string = '';
   reserva: any;
+  segmentoSelecionado: string = ''; // Inicia com '' (Todos)
 
   constructor(private api: ApiService) {}
 
@@ -24,6 +25,10 @@ export class InputComponent {
       next: (reserva: any[]) => {
         // Como a API agora dá 404 quando não acha, aqui SEMPRE virá uma reserva válida
         const reservaEncontrada = reserva[0];
+
+        // Garante que o segmento (PF ou PJ) está presente no objeto
+        reservaEncontrada.segmento =
+          reservaEncontrada.segmento || this.segmentoSelecionado;
 
         this.api.getReservaTratada(this.numeroReserva).subscribe({
           next: (tratativa: any) => {

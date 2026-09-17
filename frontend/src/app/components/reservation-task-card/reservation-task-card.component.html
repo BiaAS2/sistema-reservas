@@ -6,6 +6,7 @@
       <mat-form-field appearance="outline" class="custom-select-field">
         <mat-select placeholder="Status" (selectionChange)="onStatusChange($event.value)" [(ngModel)]="status" name="status">
           <mat-option value="aberta">Aberta</mat-option>
+          <mat-option value="utilizada">Utilizada</mat-option>
           <mat-option value="nao-confirmada">Não Confirmada</mat-option>
           <mat-option value="duplicada">Duplicada</mat-option>
           <mat-option value="nova-reserva">Nova Reserva Criada</mat-option>
@@ -14,11 +15,16 @@
 
       <div class="fields-group">
 
-        <!-- NOVO INPUT (condicional -> nova reserva) -->
+        <!-- CAMPOS CONDICIONAIS (Nova Reserva) -->
         <div class="input-wrapper" [hidden]="!mostrarLocalizador">
           <input type="text" name="localizadorNovo" placeholder="Novo Localizador" class="custom-input" [(ngModel)]="numeroNovaReserva">
         </div>
 
+        <div class="input-wrapper" [hidden]="!mostrarNovoValor">
+          <input type="text" name="valorNovo" placeholder="Novo Valor Recuperado (R$)" class="custom-input" [(ngModel)]="valorNovaReserva">
+        </div>
+
+        <!-- DEMAIS CAMPOS -->
         <div class="input-wrapper">
           <input type="text" name="responsavel" placeholder="Responsável" class="custom-input" [(ngModel)]="responsavel">
         </div>

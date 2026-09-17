@@ -14,19 +14,16 @@ export class ReservationDetailsCardComponent {
   formatarTelefone(telefone: string): string {
     if (!telefone) return '';
 
-    // remove tudo que não é número
     const numeros = telefone.replace(/\D/g, '');
 
-    // (31) 98742-4984
     if (numeros.length === 11) {
       return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 7)}-${numeros.slice(7)}`;
     }
 
-    // (31) 3742-4984
     if (numeros.length === 10) {
       return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 6)}-${numeros.slice(6)}`;
     }
 
-    return telefone; // fallback
+    return telefone;
   }
 }

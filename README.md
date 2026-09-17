@@ -12,14 +12,21 @@
 <br>
 
 <p align="center">
-  <img alt="imagem Projeto" src="./frontend/public/img/tela_inicial.png" width="100%">
+  <img alt="imagem Projeto" src="./frontend/public/img/tela_inicial_v1.1.0.png" width="100%">
 </p>
 
 # Sobre o projeto
 
-Aplicação Full Stack desenvolvida para consulta e tratamento operacional de reservas não confirmadas.
+Aplicação Full Stack desenvolvida para a consulta, gestão e tratamento operacional de reservas não confirmadas ou negadas.
 
-O sistema permite pesquisar reservas, visualizar seus detalhes e registrar ou atualizar as tratativas realizadas pela equipe responsável.
+O sistema permite que a equipe operacional pesquise reservas, visualize seus detalhes e registre ou atualize o histórico de tratativas, garantindo o acompanhamento do ciclo de vida das reservas e a mensuração do impacto financeiro recuperado.
+
+# Evolução da Arquitetura
+Concebido inicialmente para atender de forma dedicada o segmento Pessoa Jurídica (PJ), o sistema foi posteriormente expandido para suportar também Pessoa Física (PF). 
+
+Essa evolução foi planejada para demonstrar uma arquitetura flexível e escalável, capaz de lidar com regras de negócio distintas para cada segmento (como validação de CPF/CNPJ, e-mails corporativos vs. pessoais e prefixos de cotação diferentes) mantendo a coesão da aplicação.
+
+> ⚠️ **Nota de Privacidade e LGPD:** Todos os dados utilizados no banco de dados (nomes, CPFs, empresas, e-mails, telefones e valores) são 100% fictícios e gerados automaticamente apenas para fins de testes, simulação operacional e demonstração técnica de portfólio.
 
 ## Tecnologias utilizadas
 
@@ -47,7 +54,8 @@ MEU-PROJETO/
 ├── backend/
 ├── frontend/
 ├── database/
-│   └── schema.sql
+│   ├── schema_v1.0.0.sql
+│   └── schema_v1.1.0.sql
 ├── docs/
 ├── .gitignore
 └── README.md
@@ -76,23 +84,25 @@ uvicorn main:app --reload
 Execute o arquivo:
 
 ```text
-database/schema.sql
+database/schema_v1.1.0.sql
 ```
 
 em uma instância PostgreSQL para criar as tabelas necessárias para a aplicação.
 
 ## Funcionalidades
 
-- Consulta de reservas;
-- Visualização dos detalhes da reserva;
-- Cadastro e atualização de tratativas;
-- Registro de observações operacionais;
-- Registro de novo localizador;
-- Limpeza manual para nova consulta.
+- Seleção de Segmento: Filtro entre Pessoa Física (PF) e Pessoa Jurídica (PJ).
+- Consulta de Reservas: Busca por número identificador.
+- Detalhes Condicionais: Exibição de dados conforme o segmento selecionado.
+- Gestão de Tratativas: Registro de status, responsáveis e confirmação.
+- Gestão Financeira: Registro de novo localizador e valores recuperados.
+- Observações Operacionais: Anotações sobre o atendimento.
+- Limpeza de Tela: Reset dos dados para novas consultas.
+
 
 ## Material
 
-Para acessar o material do nosso Mini curso acesse o link: [MATERIAL](./docs/Documentação%20Técnica%20—%20Sistema%20de%20Tratativa%20de%20Reservas%20Não%20Confirmadas.pdf)
+Para acessar a documentação, acesse o link: [DOCUMENTAÇÃO](./docs/Documentação%20Técnica%20—%20Sistema%20de%20Tratativa%20de%20Reservas%20Não%20Confirmadas.pdf)
 
 ## Layout
 

@@ -1,50 +1,62 @@
 <div class="reservation-details-card">
-  <h2>{{reserva?.numero_reserva || 'Número da Reserva'}}</h2>
+  <h2>{{ reserva?.numero_reserva || 'Número da Reserva' }}</h2>
 
   <dl class="details-list">
-    <div class="detail-group">
-      <dt>Nome da Empresa</dt>
-      <dd>{{reserva?.nome_empresa}}</dd>
-    </div>
+    <!-- Exibe SOMENTE para Pessoa Jurídica (PJ) -->
+    @if (reserva?.segmento === 'PJ') {
+      <div class="detail-group">
+        <dt>Nome da Empresa</dt>
+        <dd>{{ reserva?.nome_empresa }}</dd>
+      </div>
 
-    <div class="detail-group">
-      <dt>Nome do Requisitante</dt>
-      <dd>{{reserva?.nome_requisitante}}</dd>
-    </div>
+      <div class="detail-group">
+        <dt>Nome do Requisitante</dt>
+        <dd>{{ reserva?.nome_requisitante }}</dd>
+      </div>
+    }
 
+    <!-- Exibe SOMENTE para Pessoa Física (PF) -->
+    @if (reserva?.segmento === 'PF') {
+      <div class="detail-group">
+        <dt>CPF do Condutor</dt>
+        <dd>{{ reserva?.cpf || reserva?.documento }}</dd>
+      </div>
+    }
+
+    <!-- Campos Comuns para PF e PJ -->
     <div class="detail-group">
       <dt>Agência</dt>
-      <dd>{{reserva?.agencia}}</dd>
+      <dd>{{ reserva?.agencia }}</dd>
     </div>
 
     <div class="detail-group">
       <dt>Nome do Condutor</dt>
-      <dd>{{reserva?.nome_condutor}}</dd>
+      <dd>{{ reserva?.nome_condutor }}</dd>
     </div>
 
     <div class="detail-group inline">
       <dt>Grupo</dt>
-      <dd>{{reserva?.grupo}}</dd>
+      <dd>{{ reserva?.grupo }}</dd>
     </div>
 
     <div class="detail-group inline">
       <dt>E-mail</dt>
-      <dd>{{reserva?.email}}</dd>
+      <dd>{{ reserva?.email }}</dd>
     </div>
 
     <div class="detail-group inline">
       <dt>Telefone</dt>
-      <dd>{{formatarTelefone(reserva?.telefone)}}</dd>
+      <dd>{{ formatarTelefone(reserva?.telefone) }}</dd>
     </div>
 
     <div class="detail-group inline">
       <dt>Data de Retirada</dt>
-      <dd>{{reserva?.data_retirada | date:'dd/MM/yyyy'}}</dd>
+      <dd>{{ reserva?.data_retirada | date:'dd/MM/yyyy' }}</dd>
     </div>
 
     <div class="detail-group inline">
       <dt>Data de Devolução</dt>
-      <dd>{{reserva?.data_devolucao | date:'dd/MM/yyyy'}}</dd>
+      <dd>{{ reserva?.data_devolucao | date:'dd/MM/yyyy' }}</dd>
     </div>
-    </dl>
+  </dl>
 </div>

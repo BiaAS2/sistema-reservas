@@ -31,11 +31,13 @@ conn = psycopg2.connect(
 # modelo de dados para reserva tratada
 class ReservaTratada(BaseModel):
     numero_reserva: str
+    segmento: str  # 'PF' ou 'PJ'
     status_tratado: str
     responsavel: Optional[str] = None
     confirmada_por: Optional[str] = None
     observacoes: Optional[str] = None
     numero_nova_reserva: Optional[str] = None
+    valor_recuperado: Optional[float] = 0.00
 
 # Buscar reserva negada por número
 @app.get("/reservas_negadas/{numero}")
@@ -103,20 +105,24 @@ def criar_tratativa(reserva: ReservaTratada):
                 """
                 UPDATE reservas_tratadas
                 SET
+                    segmento = %s,
                     status_tratado = %s,
                     responsavel = %s,
                     confirmada_por = %s,
                     observacoes = %s,
                     numero_nova_reserva = %s,
+                    valor_recuperado = %s,
                     data_tratamento = CURRENT_TIMESTAMP
                 WHERE numero_reserva = %s
                 """,
                 (
+                    reserva.segmento,
                     reserva.status_tratado,
                     reserva.responsavel,
                     reserva.confirmada_por,
                     reserva.observacoes,
                     reserva.numero_nova_reserva,
+                    reserva.valor_recuperado,
                     reserva.numero_reserva
                 )
             )
@@ -133,21 +139,25 @@ def criar_tratativa(reserva: ReservaTratada):
                 """
                 INSERT INTO reservas_tratadas (
                     numero_reserva,
+                    segmento,
                     status_tratado,
                     responsavel,
                     confirmada_por,
                     observacoes,
-                    numero_nova_reserva
+                    numero_nova_reserva,
+                    valor_recuperado
                 )
-                VALUES (%s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 (
                     reserva.numero_reserva,
+                    reserva.segmento,
                     reserva.status_tratado,
                     reserva.responsavel,
                     reserva.confirmada_por,
                     reserva.observacoes,
-                    reserva.numero_nova_reserva
+                    reserva.numero_nova_reserva,
+                    reserva.valor_recuperado
                 )
             )
 
